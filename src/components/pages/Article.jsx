@@ -1,3 +1,14 @@
+import { useParams } from "react-router-dom";
+import { SpecificArticle } from "../page-contents/article/SpecificArticle";
+import { ArticleComments } from "../page-contents/article/ArticleComments";
+
 export const Article = () => {
-  return <h1>Article Page</h1>;
+  const { article } = useParams();
+
+  return (
+    <>
+      <SpecificArticle id={article} />
+      <ArticleComments id={article} />
+    </>
+  );
 };

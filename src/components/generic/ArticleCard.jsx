@@ -1,7 +1,10 @@
 import "./generic.css";
+import { convertToTimestamp } from "../../utils";
+import { Link } from "react-router-dom";
 
 export const ArticleCard = ({
   article: {
+    article_id,
     title,
     topic,
     author,
@@ -11,18 +14,14 @@ export const ArticleCard = ({
     comment_count,
   },
 }) => {
-  const timestamp = new Date(created_at).toLocaleDateString("en-UK", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
-
   return (
     <article className="article-card">
-      <h2>{title}</h2>
+      <Link to={`/articles/${article_id}`}>
+        <h2>{title}</h2>
+      </Link>
       <p>{topic}</p>
       <p>{author}</p>
-      <p>{timestamp}</p>
+      <p>{convertToTimestamp(created_at)}</p>
       <p>{votes}</p>
       <p>{comment_count}</p>
       <img src={article_img_url} />
