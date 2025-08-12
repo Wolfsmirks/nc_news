@@ -21,3 +21,13 @@ export const fetchCommentsByArticle = async (id) => {
   const comments = await res.json();
   return comments;
 };
+
+export const patchArticleVotes = async (id, vote) => {
+  await fetch(`https://northcoders-news-4vbk.onrender.com/api/articles/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ inc_votes: vote }),
+  });
+};

@@ -3,12 +3,12 @@ import { SpecificArticle } from "../page-contents/article/SpecificArticle";
 import { ArticleComments } from "../page-contents/article/ArticleComments";
 
 export const Article = () => {
-  const { article } = useParams();
+  const { article_id } = useParams();
 
   return (
     <>
-      <SpecificArticle id={article} />
-      <ArticleComments id={article} />
+      <SpecificArticle id={article_id} />
+      <ArticleComments id={article_id} />
     </>
   );
 };
