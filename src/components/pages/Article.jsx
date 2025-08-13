@@ -7,8 +7,8 @@ export const Article = () => {
 
   return (
     <>
-      <SpecificArticle id={article_id} />
-      <ArticleComments id={article_id} />
+      <SpecificArticle articleId={article_id} />
+      <ArticleComments articleId={article_id} />
     </>
   );
 };

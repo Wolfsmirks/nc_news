@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { postComment } from "../../../api";
 
-export const AddComment = ({ id, comments, setComments }) => {
+export const AddComment = ({ articleId }) => {
   const [input, setInput] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const comment = await postComment(id, input);
-    setComments([...comments, comment]);
+    await postComment(articleId, input);
   };
 
   return (

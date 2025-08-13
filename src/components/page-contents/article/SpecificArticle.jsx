@@ -3,11 +3,11 @@ import { fetchArticleById } from "../../../api";
 import { convertToTimestamp } from "../../../utils";
 import { VoteButton } from "../../generic/VoteButton";
 
-export const SpecificArticle = ({ id }) => {
+export const SpecificArticle = ({ articleId }) => {
   const [article, setArticle] = useState(null);
 
   useEffect(() => {
-    fetchArticleById(id).then(({ article }) => {
+    fetchArticleById(articleId).then(({ article }) => {
       setArticle(article);
     });
   }, []);
@@ -36,7 +36,7 @@ export const SpecificArticle = ({ id }) => {
         <p>{convertToTimestamp(created_at)}</p>
         <p>{body}</p>
         <p>Votes: {votes}</p>
-        <VoteButton id={id} handleVote={handleVote} />
+        <VoteButton articleId={articleId} handleVote={handleVote} />
         <p>Comment Count: {comment_count}</p>
         <img src={article_img_url} />
       </article>

@@ -22,13 +22,13 @@ export const fetchCommentsByArticle = async (id) => {
   return comments;
 };
 
-export const patchArticleVotes = async (id, vote) => {
+export const patchArticleVotes = async (id, inc_votes) => {
   await fetch(`https://northcoders-news-4vbk.onrender.com/api/articles/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ inc_votes: vote }),
+    body: JSON.stringify({ inc_votes }),
   });
 };
 
@@ -45,4 +45,13 @@ export const postComment = async (id, body) => {
   );
   const { comment } = await res.json();
   return comment;
+};
+
+export const deleteComment = async (id) => {
+  await fetch(`https://northcoders-news-4vbk.onrender.com/api/comments/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 };
