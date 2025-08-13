@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { convertToTimestamp } from "../../../utils";
 import { fetchCommentsByArticle } from "../../../api";
+import { AddComment } from "./AddComment";
 
 export const ArticleComments = ({ id }) => {
   const [comments, setComments] = useState(null);
@@ -9,20 +10,23 @@ export const ArticleComments = ({ id }) => {
     fetchCommentsByArticle(id).then(({ comments }) => {
       setComments(comments);
     });
-  }, []);
+  }, [comments]);
 
   if (comments) {
     return (
-      <ul>
-        {comments.map(({ comment_id, body, votes, author, created_at }) => (
-          <article key={comment_id}>
-            <h2>{author}</h2>
-            <p>{body}</p>
-            <p>{votes}</p>
-            <p>{convertToTimestamp(created_at)}</p>
-          </article>
-        ))}
-      </ul>
+      <>
+        <AddComment id={id} comments={comments} setComments={setComments} />
+        <ul>
+          {comments.map(({ comment_id, body, votes, author, created_at }) => (
+            <article key={comment_id}>
+              <h2>{author}</h2>
+              <p>{body}</p>
+              <p>{votes}</p>
+              <p>{convertToTimestamp(created_at)}</p>
+            </article>
+          ))}
+        </ul>
+      </>
     );
   }
 };

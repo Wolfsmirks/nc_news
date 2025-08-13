@@ -22,8 +22,8 @@ export const ArticleCard = ({
       <p>{topic}</p>
       <p>{author}</p>
       <p>{convertToTimestamp(created_at)}</p>
-      <p>{votes}</p>
-      <p>{comment_count}</p>
+      <p>Votes: {votes}</p>
+      <p>Comment Count: {comment_count}</p>
       <img src={article_img_url} />
     </article>
   );

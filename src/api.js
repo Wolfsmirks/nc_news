@@ -31,3 +31,18 @@ export const patchArticleVotes = async (id, vote) => {
     body: JSON.stringify({ inc_votes: vote }),
   });
 };
+
+export const postComment = async (id, body) => {
+  const res = await fetch(
+    `https://northcoders-news-4vbk.onrender.com/api/articles/${id}/comments`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username: "grumpy19", body }),
+    }
+  );
+  const { comment } = await res.json();
+  return comment;
+};
