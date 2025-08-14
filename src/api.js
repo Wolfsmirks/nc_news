@@ -1,7 +1,11 @@
-export const fetchAllArticles = async () => {
-  const res = await fetch(
-    "https://northcoders-news-4vbk.onrender.com/api/articles"
-  );
+export const fetchAllArticles = async (sortBy = "", order) => {
+  const baseUrl = `https://northcoders-news-4vbk.onrender.com/api/articles`;
+  const url = sortBy ? `${baseUrl}?sort_by=${sortBy}&order=${order}` : baseUrl;
+
+  console.log(sortBy, order);
+  console.log(url);
+
+  const res = await fetch(url);
   const { articles } = await res.json();
   return articles;
 };
