@@ -16,7 +16,10 @@ export const ArticleComments = ({ articleId }) => {
   if (articleComments) {
     return (
       <>
-        <AddComment articleId={articleId} />
+        <AddComment
+          articleId={articleId}
+          setArticleComments={setArticleComments}
+        />
         <ul>
           {articleComments.map(
             ({ comment_id, body, votes, author, created_at }) => (
@@ -27,7 +30,10 @@ export const ArticleComments = ({ articleId }) => {
                 <p>{convertToTimestamp(created_at)}</p>
                 <p>COMMENT ID: {comment_id}</p>
                 {author === "grumpy19" && (
-                  <BtnDeleteComment commentId={comment_id} />
+                  <BtnDeleteComment
+                    commentId={comment_id}
+                    setArticleComments={setArticleComments}
+                  />
                 )}
               </article>
             )
