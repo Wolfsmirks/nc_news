@@ -11,7 +11,7 @@ export const ArticleComments = ({ articleId }) => {
     fetchCommentsByArticle(articleId).then(({ comments }) => {
       setArticleComments(comments);
     });
-  }, [articleComments]);
+  }, []);
 
   if (articleComments) {
     return (

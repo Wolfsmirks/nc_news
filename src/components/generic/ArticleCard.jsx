@@ -19,7 +19,9 @@ export const ArticleCard = ({
       <Link to={`/articles/${article_id}`}>
         <h2>{title}</h2>
       </Link>
-      <p>{topic}</p>
+      <Link to={`/topics/${topic}`}>
+        <p>{topic}</p>
+      </Link>
       <p>{author}</p>
       <p>{convertToTimestamp(created_at)}</p>
       <p>Votes: {votes}</p>

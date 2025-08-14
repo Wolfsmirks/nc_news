@@ -1,3 +1,13 @@
+import { useParams } from "react-router-dom";
+import { ArticlesOnTopic } from "../page-contents/topic/ArticlesOnTopic";
+
 export const Topic = () => {
-  return <h1>Topic Page</h1>;
+  const { topic } = useParams();
+
+  return (
+    <>
+      <h1>{topic}</h1>
+      <ArticlesOnTopic topic={topic} />
+    </>
+  );
 };

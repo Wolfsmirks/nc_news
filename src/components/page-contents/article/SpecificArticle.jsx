@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { fetchArticleById } from "../../../api";
 import { convertToTimestamp } from "../../../utils";
 import { VoteButton } from "../../generic/VoteButton";
@@ -31,6 +32,9 @@ export const SpecificArticle = ({ articleId }) => {
     return (
       <article>
         <h2>{title}</h2>
+        <Link to={`/topics/${topic}`}>
+          <p>{topic}</p>
+        </Link>
         <p>{topic}</p>
         <p>{author}</p>
         <p>{convertToTimestamp(created_at)}</p>

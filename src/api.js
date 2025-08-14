@@ -55,3 +55,11 @@ export const deleteComment = async (id) => {
     },
   });
 };
+
+export const fetchArticlesByTopic = async (topic) => {
+  const res = await fetch(
+    `https://northcoders-news-4vbk.onrender.com/api/articles?filter_by=topic&topic=${topic}`
+  );
+  const { articles } = await res.json();
+  return articles;
+};

@@ -10,9 +10,9 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/topic" element={<Topic />} />
-        <Route path="/user" element={<User />} />
+        <Route path="/topics/:topic" element={<Topic />} />
         <Route path="/articles/:article_id" element={<Article />} />
+        <Route path="/user" element={<User />} />
       </Routes>
       <Footer />
     </div>
