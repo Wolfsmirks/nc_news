@@ -6,16 +6,29 @@ import { VoteButton } from "../../generic/VoteButton";
 
 export const SpecificArticle = ({ articleId }) => {
   const [article, setArticle] = useState(null);
+  const [error, setError] = useState(null);
+  console.log(error);
 
   useEffect(() => {
-    fetchArticleById(articleId).then(({ article }) => {
-      setArticle(article);
-    });
+    fetchArticleById(articleId)
+      .then(({ article }) => {
+        setArticle(article);
+      })
+      .catch((err) => {
+        setError(err);
+      });
   }, []);
 
   const handleVote = (vote) => {
     setArticle((prev) => ({ ...prev, votes: prev.votes + vote }));
   };
+
+  if (error)
+    return (
+      <>
+        <h2>{error.message}</h2>
+      </>
+    );
 
   if (article) {
     const {

@@ -15,6 +15,7 @@ export const AddComment = ({ articleId }) => {
         type="text"
         name="comment"
         onChange={(event) => setInput(event.target.value)}
+        required
       />
       <input type="submit" value="Post" />
     </form>

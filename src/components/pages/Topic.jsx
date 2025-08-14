@@ -6,7 +6,6 @@ export const Topic = () => {
 
   return (
     <>
-      <h1>{topic}</h1>
       <ArticlesOnTopic topic={topic} />
     </>
   );

@@ -2,6 +2,7 @@ export const fetchAllArticles = async (sortBy = "", order) => {
   const baseUrl = `https://northcoders-news-4vbk.onrender.com/api/articles`;
   const url = sortBy ? `${baseUrl}?sort_by=${sortBy}&order=${order}` : baseUrl;
   const res = await fetch(url);
+
   const { articles } = await res.json();
   return articles;
 };
@@ -10,6 +11,11 @@ export const fetchArticleById = async (id) => {
   const res = await fetch(
     `https://northcoders-news-4vbk.onrender.com/api/articles/${id}`
   );
+
+  if (!res.ok) {
+    const error = await res.json();
+    throw new Error(error.msg);
+  }
   const article = await res.json();
   return article;
 };

@@ -11,6 +11,8 @@ export const ArticlesOnTopic = ({ topic }) => {
     });
   }, []);
 
+  if (articlesOnTopic.length === 0)
+    return <h2>There are no articles on this topic</h2>;
   if (articlesOnTopic) {
     return (
       <ul>
