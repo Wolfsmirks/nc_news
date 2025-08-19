@@ -7,7 +7,6 @@ import { VoteButton } from "../../generic/VoteButton";
 export const SpecificArticle = ({ articleId }) => {
   const [article, setArticle] = useState(null);
   const [error, setError] = useState(null);
-  console.log(error);
 
   useEffect(() => {
     fetchArticleById(articleId)

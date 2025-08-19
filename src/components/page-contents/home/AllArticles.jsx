@@ -29,11 +29,15 @@ export const AllArticles = () => {
           </select>
         </form>
         <button onClick={toggleOrder}>Order Toggle</button>
-        <ul>
-          {allArticles.map((article) => (
-            <ArticleCard key={article.article_id} article={article} />
-          ))}
-        </ul>
+        <div className="container">
+          <div className="row">
+            {allArticles.map((article) => (
+              <div className="col" key={article.article_id}>
+                <ArticleCard article={article} />
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
     );
   }
