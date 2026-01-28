@@ -1,4 +1,3 @@
-import "./generic.css";
 import { convertToTimestamp } from "../../utils";
 import { Link } from "react-router-dom";
 
