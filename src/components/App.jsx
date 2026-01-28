@@ -3,7 +3,6 @@ import { Header } from "./page-contents/universal/Header";
 import { Home, Topic, User, Article } from "./pages";
 import { Footer } from "./page-contents/universal/Footer";
 import { ErrorBoundry } from "./generic/ErrorBoundry";
-import "./App.css";
 
 function App() {
   return (
